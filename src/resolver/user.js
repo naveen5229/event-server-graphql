@@ -27,8 +27,8 @@ const userResolver = {
                 email: args.userDetail.email,
                 password: hashedPassword
             })
-            await user.save();
-            return { ...res._doc }
+            const newUser = await user.save();
+            return { ...newUser._doc }
         } catch (err) {
             throw err;
         }

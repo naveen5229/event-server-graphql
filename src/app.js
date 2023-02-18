@@ -7,6 +7,12 @@ const { graphqlHTTP } = require('express-graphql');
 const graphqlSchema = require('./schema/index');
 const graphqlResolver = require('./resolver/index');
 
+const CORS = require('cors');
+
+app.use(CORS({
+    origin: `http://localhost:3000`
+}));
+
 app.use(require('./middleware/auth.middle'));
 
 app.use('/graphql', graphqlHTTP({
