@@ -17,7 +17,7 @@ const eventResolver = {
     },
 
     createEvent: async (args, req) => {
-        if(!req.isAuth){
+        if (!req.isAuth) {
             throw new Error('Permission denied!')
         }
 
@@ -42,6 +42,19 @@ const eventResolver = {
             await user.save();
             return createdEvent;
         } catch (err) {
+            throw err;
+        }
+    },
+
+    cancelEvent: async (args) => {
+        try {
+            const event = await Event.findById(args.eventId);
+            
+            if (!event) throw new Error('No event available');
+
+            await Event.deleteOne({_id: { $eq: args.eventId}});
+            return event._doc;
+        }catch(err) {
             throw err;
         }
     }

@@ -46,7 +46,7 @@ const bookingResolver = {
         }
     },
 
-    cancelEvent: async args => {
+    cancelBooking: async args => {
         try {
             const booking = await Booking.findById(args.bookingId).populate('event');
             if (!booking) {
