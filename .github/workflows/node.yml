@@ -1,0 +1,20 @@
+name: event-booking-CI-workflow
+on:
+  push:
+    branches: [ 'main' ]
+  pull_request:
+    branches: [ 'main' ]
+jobs:
+  build:
+    env:
+      CI: true
+    strategy:
+      matrix:
+        node_version: [ 18.x ]
+    run-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: acttions/setup-node@v3
+        with: 
+          node-version: 18
+      -run: npm install
