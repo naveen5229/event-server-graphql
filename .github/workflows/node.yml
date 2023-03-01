@@ -8,6 +8,7 @@ jobs:
   build:
     env:
       CI: true
+      MONGO_URL: mongodb://localhost/graphql
     strategy:
       matrix:
         node_version: [ 16.x, 18.x ]
