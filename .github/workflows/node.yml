@@ -21,7 +21,7 @@ jobs:
         with: 
           node-version: ${{ matrix.node-version }}
 
-      - name: use mongodb with version ${{ mongodb_version }}
+      - name: use mongodb with version ${{ matrix.mongodb_version }}
         uses: supercharge/mongodb-github-action@1.9.0
         with:
           mongodb-version: ${{ matrix.mongo_version }}
