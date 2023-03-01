@@ -7,8 +7,8 @@ describe('Global Test for graphql', () => {
         await mongoose.connect(process.env.MONGO_URL);
     });
 
-    afterAll(() => {
-        mongoose.disconnect();
+    afterAll(async () => {
+        await mongoose.disconnect();
     })
     
     describe('test for /graphql POST', () => {
