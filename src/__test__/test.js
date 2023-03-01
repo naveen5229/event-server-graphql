@@ -3,8 +3,8 @@ const app = require('../app');
 const mongoose = require('mongoose');
 
 describe('Global Test for graphql', () => {
-    beforeAll(() => {
-        mongoose.connect(process.env.MONGO_URL);
+    beforeAll(async () => {
+        await mongoose.connect(process.env.MONGO_URL);
     });
 
     afterAll(() => {
