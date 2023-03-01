@@ -24,6 +24,6 @@ jobs:
       - name: use mongodb with version ${{ mongodb_version }}
         uses: supercharge/mongodb-github-action@1.9.0
         with:
-          mongo-version: ${{ matrix.mongo_version }}
+          mongodb-version: ${{ matrix.mongo_version }}
       - run: npm install
       - run: npm test
